@@ -1,6 +1,6 @@
 public class MazeEscape {
 
-     private char[][] maze;
+     final private char[][] maze;
      private int movements;
 
     /**
@@ -14,28 +14,30 @@ public class MazeEscape {
 
     /**
      * Attempts to escape the maze
-     * @param posX X coordinate of the maze
-     * @param posY Y coordinate of the maze
+     * @param row X coordinate of the maze
+     * @param column Y coordinate of the maze
      * @return returns if it is escapable or not
      */
+    
+     public boolean attemptEscape(int row, int column){
 
-     public boolean attemptEscape(int posX, int posY){
-
-        if (posX < 0
-                || posY < 0
-                || posX >= maze.length
-                || posY >= maze[0].length
-                || maze[posX][posY] == '*' //single astrix
-                || maze[posX][posY] == 'O'){
+         //test if the current spot is invalid
+         if (row < 0
+                || column < 0
+                || row >= maze.length
+                || column >= maze[0].length
+                || maze[row][column] == '*' //single astrix
+                || maze[row][column] == 'O'){
 
             return false;
 
-        }
+         }
 
-         if (posX == 0
-                 || posY == 0
-                 || posX == maze.length - 1
-                 || posY == maze[0].length - 1) {
+        //Tests if the current spot is an exit
+         if (row == 0
+                 || column == 0
+                 || row == maze.length - 1
+                 || column == maze[0].length - 1) {
 
              movements++;
 
@@ -43,23 +45,25 @@ public class MazeEscape {
 
          }
 
-         maze[posX][posY] = 'O';
+         //breadcrumbs
+         maze[row][column] = 'O';
 
-        if(attemptEscape(posX + 1, posY)
-                || attemptEscape(posX - 1, posY)
-                || attemptEscape(posX, posY + 1)
-                || attemptEscape(posX, posY -1)){
+         //Recursion in all directions
+         if(attemptEscape(row + 1, column)
+                || attemptEscape(row - 1, column)
+                || attemptEscape(row, column + 1)
+                || attemptEscape(row, column -1)){
 
             movements++;
 
             return true;
 
-        } else {
+         } else {
 
-            maze[posX][posY] = ' ';
+            maze[row][column] = ' '; //Removing after backtrack
             return false;
 
-        }
+         }
 
 
      }

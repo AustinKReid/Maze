@@ -14,8 +14,8 @@ public class Tester {
 
         MazeEscape s1 = new MazeEscape(maze);
 
-        System.out.println(s1.attemptEscape(5,1));
-        System.out.println(s1.getMovements());
+        System.out.println("Escape Possible? " + s1.attemptEscape(6,1));
+        System.out.println("Movements Required: " + s1.getMovements());
 
         maze = s1.getMaze();
 
