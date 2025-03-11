@@ -1,4 +1,4 @@
-public class MazeEscape {
+public final class MazeEscape {
 
      final private char[][] maze;
      private int movements;
