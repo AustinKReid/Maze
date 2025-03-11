@@ -33,7 +33,7 @@ public class MazeEscape {
 
          }
 
-        //Tests if the current spot is an exit
+         //Tests if the current spot is an exit
          if (row == 0
                  || column == 0
                  || row == maze.length - 1
