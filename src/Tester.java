@@ -1,6 +1,7 @@
 public class Tester {
     public static void main(String[] args) {
-        char[][] maze = {
+
+        char[][] maze = { //This is the maze which the program will try to explore and escape
                 {'*', ' ', '*', '*', '*', '*', '*', '*'},
                 {'*', ' ', ' ', ' ', '*', ' ', ' ', '*'},
                 {'*', ' ', '*', '*', '*', '*', ' ', '*'},
@@ -18,6 +19,7 @@ public class Tester {
 
         maze = s1.getMaze();
 
+        //Getting the maze back into a printable form
         for (int i = 0; i < maze.length; i++) {
             for (int j = 0; j < maze[i].length; j++) {
                 System.out.print(maze[i][j] + " ");

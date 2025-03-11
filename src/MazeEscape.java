@@ -3,9 +3,21 @@ public class MazeEscape {
      private char[][] maze;
      private int movements;
 
+    /**
+     * Constructor for the maze
+     * @param maze maze to be constructed
+     */
+
      public MazeEscape(char[][] maze){
          this.maze = maze;
      }
+
+    /**
+     * Attempts to escape the maze
+     * @param posX X coordinate of the maze
+     * @param posY Y coordinate of the maze
+     * @return returns if it is escapable or not
+     */
 
      public boolean attemptEscape(int posX, int posY){
 
@@ -52,9 +64,19 @@ public class MazeEscape {
 
      }
 
+    /**
+     * Gets the maze with the marked up route
+     * @return the maze
+     */
+
      public char[][] getMaze(){
          return maze;
      }
+
+    /**
+     * Gets how many movements were made to reach the exit excluding discarded moves
+     * @return movements
+     */
 
      public int getMovements(){
          return movements;
